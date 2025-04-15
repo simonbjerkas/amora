@@ -25,7 +25,7 @@ export function createRouter() {
       scrollRestoration: true,
       defaultPreload: 'intent',
       context: { queryClient },
-      Wrap: ({ children }) => (
+      Wrap: ({ children }: { children: React.ReactNode }) => (
         <ConvexProvider client={convexQueryClient.convexClient}>
           {children}
         </ConvexProvider>
