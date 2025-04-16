@@ -1,6 +1,7 @@
 import { Link } from '@tanstack/react-router'
 import { HeartIcon } from 'lucide-react'
 import { Logo } from './logo'
+import { XIcon, FacebookIcon, InstagramIcon, PinterestIcon } from './icons'
 
 export function Footer() {
   return (
@@ -19,22 +20,28 @@ export function Footer() {
             <h3 className="mb-4 text-sm font-medium">Shop</h3>
             <ul className="text-muted-foreground space-y-2 text-sm">
               <li>
-                <Link to="/" className="hover:text-foreground">
+                <Link to="/products" className="hover:text-foreground">
                   All Products
                 </Link>
               </li>
               <li>
-                <Link to="/" className="hover:text-foreground">
+                <Link
+                  to="/products/bestsellers"
+                  className="hover:text-foreground"
+                >
                   New Arrivals
                 </Link>
               </li>
               <li>
-                <Link to="/" className="hover:text-foreground">
+                <Link
+                  to="/products/bestsellers"
+                  className="hover:text-foreground"
+                >
                   Bestsellers
                 </Link>
               </li>
               <li>
-                <Link to="/" className="hover:text-foreground">
+                <Link to="/products/sale" className="hover:text-foreground">
                   Sale
                 </Link>
               </li>
@@ -45,22 +52,28 @@ export function Footer() {
             <h3 className="mb-4 text-sm font-medium">Company</h3>
             <ul className="text-muted-foreground space-y-2 text-sm">
               <li>
-                <Link to="/" className="hover:text-foreground">
+                <Link to="/about" className="hover:text-foreground">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/" className="hover:text-foreground">
+                <Link to="/contact" className="hover:text-foreground">
                   Contact
                 </Link>
               </li>
               <li>
-                <Link to="/" className="hover:text-foreground">
+                <Link to="/faq" className="hover:text-foreground">
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link to="/" className="hover:text-foreground">
+                <Link
+                  to="/faq"
+                  className="hover:text-foreground"
+                  params={{
+                    q: 'shipping-returns',
+                  }}
+                >
                   Shipping & Returns
                 </Link>
               </li>
@@ -75,9 +88,9 @@ export function Footer() {
                   href="https://instagram.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-foreground"
+                  className="hover:text-foreground flex items-center gap-2"
                 >
-                  Instagram
+                  <InstagramIcon className="size-4" /> Instagram
                 </a>
               </li>
               <li>
@@ -85,9 +98,9 @@ export function Footer() {
                   href="https://pinterest.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-foreground"
+                  className="hover:text-foreground flex items-center gap-2"
                 >
-                  Pinterest
+                  <PinterestIcon className="size-4" /> Pinterest
                 </a>
               </li>
               <li>
@@ -95,19 +108,19 @@ export function Footer() {
                   href="https://facebook.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-foreground"
+                  className="hover:text-foreground flex items-center gap-2"
                 >
-                  Facebook
+                  <FacebookIcon className="size-4" /> Facebook
                 </a>
               </li>
               <li>
                 <a
-                  href="https://twitter.com"
+                  href="https://x.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-foreground"
+                  className="hover:text-foreground flex items-center gap-2"
                 >
-                  Twitter
+                  <XIcon className="size-4" /> X
                 </a>
               </li>
             </ul>

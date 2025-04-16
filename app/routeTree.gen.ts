@@ -11,14 +11,62 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as LayoutImport } from './routes/_layout'
 import { Route as IndexImport } from './routes/index'
+import { Route as LayoutFaqImport } from './routes/_layout.faq'
+import { Route as LayoutContactImport } from './routes/_layout.contact'
+import { Route as LayoutAboutImport } from './routes/_layout.about'
+import { Route as LayoutProductsIndexImport } from './routes/_layout.products/index'
+import { Route as LayoutProductsSaleImport } from './routes/_layout.products/sale'
+import { Route as LayoutProductsBestsellersImport } from './routes/_layout.products/bestsellers'
 
 // Create/Update Routes
+
+const LayoutRoute = LayoutImport.update({
+  id: '/_layout',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRoute,
+} as any)
+
+const LayoutFaqRoute = LayoutFaqImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutContactRoute = LayoutContactImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutAboutRoute = LayoutAboutImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutProductsIndexRoute = LayoutProductsIndexImport.update({
+  id: '/products/',
+  path: '/products/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutProductsSaleRoute = LayoutProductsSaleImport.update({
+  id: '/products/sale',
+  path: '/products/sale',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutProductsBestsellersRoute = LayoutProductsBestsellersImport.update({
+  id: '/products/bestsellers',
+  path: '/products/bestsellers',
+  getParentRoute: () => LayoutRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
@@ -32,39 +80,157 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/_layout': {
+      id: '/_layout'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof LayoutImport
+      parentRoute: typeof rootRoute
+    }
+    '/_layout/about': {
+      id: '/_layout/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof LayoutAboutImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/contact': {
+      id: '/_layout/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof LayoutContactImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/faq': {
+      id: '/_layout/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof LayoutFaqImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/products/bestsellers': {
+      id: '/_layout/products/bestsellers'
+      path: '/products/bestsellers'
+      fullPath: '/products/bestsellers'
+      preLoaderRoute: typeof LayoutProductsBestsellersImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/products/sale': {
+      id: '/_layout/products/sale'
+      path: '/products/sale'
+      fullPath: '/products/sale'
+      preLoaderRoute: typeof LayoutProductsSaleImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/products/': {
+      id: '/_layout/products/'
+      path: '/products'
+      fullPath: '/products'
+      preLoaderRoute: typeof LayoutProductsIndexImport
+      parentRoute: typeof LayoutImport
+    }
   }
 }
 
 // Create and export the route tree
 
+interface LayoutRouteChildren {
+  LayoutAboutRoute: typeof LayoutAboutRoute
+  LayoutContactRoute: typeof LayoutContactRoute
+  LayoutFaqRoute: typeof LayoutFaqRoute
+  LayoutProductsBestsellersRoute: typeof LayoutProductsBestsellersRoute
+  LayoutProductsSaleRoute: typeof LayoutProductsSaleRoute
+  LayoutProductsIndexRoute: typeof LayoutProductsIndexRoute
+}
+
+const LayoutRouteChildren: LayoutRouteChildren = {
+  LayoutAboutRoute: LayoutAboutRoute,
+  LayoutContactRoute: LayoutContactRoute,
+  LayoutFaqRoute: LayoutFaqRoute,
+  LayoutProductsBestsellersRoute: LayoutProductsBestsellersRoute,
+  LayoutProductsSaleRoute: LayoutProductsSaleRoute,
+  LayoutProductsIndexRoute: LayoutProductsIndexRoute,
+}
+
+const LayoutRouteWithChildren =
+  LayoutRoute._addFileChildren(LayoutRouteChildren)
+
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '': typeof LayoutRouteWithChildren
+  '/about': typeof LayoutAboutRoute
+  '/contact': typeof LayoutContactRoute
+  '/faq': typeof LayoutFaqRoute
+  '/products/bestsellers': typeof LayoutProductsBestsellersRoute
+  '/products/sale': typeof LayoutProductsSaleRoute
+  '/products': typeof LayoutProductsIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '': typeof LayoutRouteWithChildren
+  '/about': typeof LayoutAboutRoute
+  '/contact': typeof LayoutContactRoute
+  '/faq': typeof LayoutFaqRoute
+  '/products/bestsellers': typeof LayoutProductsBestsellersRoute
+  '/products/sale': typeof LayoutProductsSaleRoute
+  '/products': typeof LayoutProductsIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/_layout': typeof LayoutRouteWithChildren
+  '/_layout/about': typeof LayoutAboutRoute
+  '/_layout/contact': typeof LayoutContactRoute
+  '/_layout/faq': typeof LayoutFaqRoute
+  '/_layout/products/bestsellers': typeof LayoutProductsBestsellersRoute
+  '/_layout/products/sale': typeof LayoutProductsSaleRoute
+  '/_layout/products/': typeof LayoutProductsIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | ''
+    | '/about'
+    | '/contact'
+    | '/faq'
+    | '/products/bestsellers'
+    | '/products/sale'
+    | '/products'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | ''
+    | '/about'
+    | '/contact'
+    | '/faq'
+    | '/products/bestsellers'
+    | '/products/sale'
+    | '/products'
+  id:
+    | '__root__'
+    | '/'
+    | '/_layout'
+    | '/_layout/about'
+    | '/_layout/contact'
+    | '/_layout/faq'
+    | '/_layout/products/bestsellers'
+    | '/_layout/products/sale'
+    | '/_layout/products/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LayoutRoute: typeof LayoutRouteWithChildren
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LayoutRoute: LayoutRouteWithChildren,
 }
 
 export const routeTree = rootRoute
@@ -77,11 +243,47 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/"
+        "/",
+        "/_layout"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/_layout": {
+      "filePath": "_layout.tsx",
+      "children": [
+        "/_layout/about",
+        "/_layout/contact",
+        "/_layout/faq",
+        "/_layout/products/bestsellers",
+        "/_layout/products/sale",
+        "/_layout/products/"
+      ]
+    },
+    "/_layout/about": {
+      "filePath": "_layout.about.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/contact": {
+      "filePath": "_layout.contact.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/faq": {
+      "filePath": "_layout.faq.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/products/bestsellers": {
+      "filePath": "_layout.products/bestsellers.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/products/sale": {
+      "filePath": "_layout.products/sale.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/products/": {
+      "filePath": "_layout.products/index.tsx",
+      "parent": "/_layout"
     }
   }
 }
