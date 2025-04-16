@@ -1,7 +1,7 @@
 import { Link } from '@tanstack/react-router'
 import { HeartIcon } from 'lucide-react'
 import { Logo } from './logo'
-import { XIcon, FacebookIcon, InstagramIcon, PinterestIcon } from './icons'
+import { InstagramIcon, PinterestIcon } from './icons'
 
 export function Footer() {
   return (
@@ -85,7 +85,7 @@ export function Footer() {
             <ul className="text-muted-foreground space-y-2 text-sm">
               <li>
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/amorapakker"
                   target="_blank"
                   rel="noreferrer"
                   className="hover:text-foreground flex items-center gap-2"
@@ -95,32 +95,12 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://pinterest.com"
+                  href="https://www.pinterest.com/amorapakker"
                   target="_blank"
                   rel="noreferrer"
                   className="hover:text-foreground flex items-center gap-2"
                 >
                   <PinterestIcon className="size-4" /> Pinterest
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-foreground flex items-center gap-2"
-                >
-                  <FacebookIcon className="size-4" /> Facebook
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://x.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-foreground flex items-center gap-2"
-                >
-                  <XIcon className="size-4" /> X
                 </a>
               </li>
             </ul>
