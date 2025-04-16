@@ -6,7 +6,7 @@ import {
   createRootRouteWithContext,
 } from '@tanstack/react-router'
 
-import appCss from '@/app/styles/app.css?url'
+import appCss from '@/styles/app.css?url'
 
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'

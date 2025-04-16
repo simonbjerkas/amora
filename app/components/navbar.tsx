@@ -6,13 +6,14 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu'
+} from './ui/navigation-menu'
 
 import { HomeIcon, InfoIcon, PackageIcon, UserIcon } from 'lucide-react'
 import { Button } from './ui/button'
 import { cn } from '@/lib/utils'
 import { Logo } from './logo'
 import { Cart } from './cart'
+
 const links = [
   {
     label: 'Home',
