@@ -8,6 +8,9 @@ import {
 
 import appCss from '@/app/styles/app.css?url'
 
+import { Navbar } from '@/components/navbar'
+import { Footer } from '@/components/footer'
+
 export const Route = createRootRouteWithContext<{
   queryClient: QueryClient
 }>()({
@@ -52,8 +55,10 @@ function RootDocument({
       <head>
         <HeadContent />
       </head>
-      <body>
-        {children}
+      <body className="flex min-h-screen flex-col">
+        <Navbar />
+        <main className="container mx-auto my-8 flex-1">{children}</main>
+        <Footer />
         <Scripts />
       </body>
     </html>
