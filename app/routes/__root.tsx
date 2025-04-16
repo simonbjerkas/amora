@@ -57,7 +57,7 @@ function RootDocument({
       </head>
       <body className="flex min-h-screen flex-col">
         <Navbar />
-        <main className="container mx-auto my-8 flex-1">{children}</main>
+        <main className="flex-1">{children}</main>
         <Footer />
         <Scripts />
       </body>
