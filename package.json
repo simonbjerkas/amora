@@ -15,7 +15,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@convex-dev/react-query": "0.0.0-alpha.8",
     "@radix-ui/react-navigation-menu": "^1.2.6",
