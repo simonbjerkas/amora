@@ -61,7 +61,8 @@ export function Navbar() {
         <section className="flex flex-row gap-2">
           <Cart />
           <Button size="sm" className="rounded-full">
-            <UserIcon className="mr-2 h-4 w-4" /> Login
+            <UserIcon className="mr-2 h-4 w-4" />
+            <p className="mr-2">Login</p>
           </Button>
         </section>
       </div>

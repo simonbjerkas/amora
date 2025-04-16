@@ -16,7 +16,8 @@ export function Cart() {
     <Sheet>
       <SheetTrigger asChild>
         <Button variant="outline" size="sm" className="rounded-full">
-          <ShoppingCartIcon className="mr-2 h-4 w-4" /> Cart
+          <ShoppingCartIcon className="mr-2 h-4 w-4" />
+          <p className="mr-2">Cart</p>
         </Button>
       </SheetTrigger>
       <SheetContent>
