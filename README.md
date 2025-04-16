@@ -1,15 +1,15 @@
 # Amora
 
-A modern React application with a beautiful color palette inspired by [this color hunt](https://colorhunt.co/palette/bad8b6e1eacdf9f6e68d77ab).
+A modern React application with a beautiful color palette inspired by [this color hunt](https://colorhunt.co/palette/c7db9cfff0bdfdab9ee50046).
 
 ## 🎨 Color Palette
 
 The application uses a carefully selected color scheme:
 
-- `#BAD8B6` - A soft sage green
-- `#E1EACD` - A light mint
-- `#F9F6E6` - A warm cream
-- `#8D77AB` - A muted purple
+- `#C7DB9C` - A soft sage green
+- `#FFF0BD` - A warm cream
+- `#FDAB9E` - A soft coral
+- `#E50046` - A vibrant red
 
 ## 🚀 Tech Stack
 

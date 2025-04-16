@@ -21,10 +21,10 @@ export function Logo({ className = '', size = 'md' }: LogoProps) {
   return (
     <Link to="/" className={`flex items-center space-x-2 ${className}`}>
       <div
-        className={`relative flex ${sizeClasses[size]} from-primary via-primary/90 to-secondary/80 text-primary-foreground items-center justify-center rounded-full bg-gradient-to-br shadow-sm`}
+        className={`relative flex ${sizeClasses[size]} from-primary via-accent to-destructive text-primary-foreground items-center justify-center rounded-full bg-gradient-to-br shadow-sm`}
       >
         <span className="font-bold">A</span>
-        <div className="bg-accent absolute -right-1 -bottom-1 h-2 w-2 rounded-full"></div>
+        <div className="bg-secondary absolute -right-1 -bottom-1 h-2 w-2 rounded-full"></div>
       </div>
       <span
         className={`text-foreground font-bold tracking-tight ${textSizeClasses[size]}`}
