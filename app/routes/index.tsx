@@ -12,7 +12,7 @@ function Home() {
         {/* Hero Section */}
         <div className="bg-background relative">
           <div className="absolute inset-0">
-            <div className="from-primary/10 to-accent/10 absolute inset-0 bg-gradient-to-r" />
+            <div className="from-primary/10 via-secondary/10 to-accent/10 absolute inset-0 bg-gradient-to-r" />
             <div className="absolute inset-0 bg-[url('/grid.svg')] [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] bg-center" />
           </div>
 
@@ -21,17 +21,26 @@ function Home() {
               <div className="text-center">
                 <h1 className="text-foreground text-4xl font-bold tracking-tight sm:text-6xl">
                   <span className="block">Welcome to</span>
-                  <span className="text-primary block">Amora</span>
+                  <span className="from-primary to-secondary block bg-gradient-to-r bg-clip-text text-transparent">
+                    Amora
+                  </span>
                 </h1>
                 <p className="text-muted-foreground mt-6 text-lg leading-8">
                   Discover our collection of handpicked decor items that will
                   transform your space into a cozy haven.
                 </p>
                 <div className="mt-10 flex items-center justify-center gap-x-6">
-                  <Button size="lg" className="rounded-full">
+                  <Button
+                    size="lg"
+                    className="bg-primary hover:bg-primary/90 rounded-full"
+                  >
                     Shop Now
                   </Button>
-                  <Button variant="outline" size="lg" className="rounded-full">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-primary/20 hover:bg-primary/10 rounded-full"
+                  >
                     Learn More
                   </Button>
                 </div>
@@ -44,13 +53,13 @@ function Home() {
             className="absolute -top-24 right-0 -z-10 transform-gpu blur-3xl"
             aria-hidden="true"
           >
-            <div className="from-primary to-accent aspect-[1400/678] w-[87.5rem] bg-gradient-to-tr opacity-20" />
+            <div className="from-primary/30 to-secondary/30 aspect-[1400/678] w-[87.5rem] bg-gradient-to-tr opacity-20" />
           </div>
           <div
             className="absolute -bottom-24 left-0 -z-10 transform-gpu blur-3xl"
             aria-hidden="true"
           >
-            <div className="from-accent to-primary aspect-[1400/678] w-[87.5rem] bg-gradient-to-tr opacity-20" />
+            <div className="from-secondary/30 to-accent/30 aspect-[1400/678] w-[87.5rem] bg-gradient-to-tr opacity-20" />
           </div>
         </div>
       </div>
