@@ -8,17 +8,11 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
 
-import {
-  HomeIcon,
-  InfoIcon,
-  PackageIcon,
-  ShoppingCartIcon,
-  UserIcon,
-} from 'lucide-react'
+import { HomeIcon, InfoIcon, PackageIcon, UserIcon } from 'lucide-react'
 import { Button } from './ui/button'
 import { cn } from '@/lib/utils'
 import { Logo } from './logo'
-
+import { Cart } from './cart'
 const links = [
   {
     label: 'Home',
@@ -64,9 +58,7 @@ export function Navbar() {
         </NavigationMenu>
 
         <section className="flex flex-row gap-2">
-          <Button variant="outline" size="sm" className="rounded-full">
-            <ShoppingCartIcon className="mr-2 h-4 w-4" /> Cart
-          </Button>
+          <Cart />
           <Button size="sm" className="rounded-full">
             <UserIcon className="mr-2 h-4 w-4" /> Login
           </Button>
