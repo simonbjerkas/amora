@@ -1,4 +1,4 @@
-import { Link } from '@tanstack/react-router'
+import { Link, useRouterState } from '@tanstack/react-router'
 
 import {
   NavigationMenu,
@@ -19,7 +19,14 @@ import { Button } from './ui/button'
 import { cn } from '@/lib/utils'
 import { Logo } from './logo'
 import { Cart } from './cart'
-import { Sheet, SheetContent, SheetTrigger } from './ui/sheet'
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from './ui/sheet'
 
 const links = [
   {
@@ -40,6 +47,10 @@ const links = [
 ]
 
 export function Navbar() {
+  const {
+    location: { pathname },
+  } = useRouterState()
+  const isActive = (path: string) => pathname === path
   return (
     <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
@@ -50,17 +61,26 @@ export function Navbar() {
           <NavigationMenuList className="flex flex-row gap-2">
             {links.map((link) => (
               <NavigationMenuItem key={link.label}>
-                <Link to={link.to}>
-                  <NavigationMenuLink
+                <NavigationMenuLink asChild>
+                  <Link
+                    to={link.to}
                     className={cn(
                       navigationMenuTriggerStyle(),
                       'hover:bg-accent hover:text-accent-foreground flex flex-row items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors',
                     )}
                   >
                     {link.icon}
-                    {link.label}
-                  </NavigationMenuLink>
-                </Link>
+                    <span className="relative">
+                      {link.label}
+                      <span
+                        className={cn(
+                          'bg-primary absolute -bottom-1 left-0 h-0.5 w-0 transition-all',
+                          isActive(link.to) && 'w-full',
+                        )}
+                      />
+                    </span>
+                  </Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
             ))}
           </NavigationMenuList>
@@ -81,6 +101,10 @@ export function Navbar() {
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
+            <SheetHeader className="sr-only">
+              <SheetTitle>Navigation</SheetTitle>
+              <SheetDescription>Navigation menu</SheetDescription>
+            </SheetHeader>
             <SheetContent side="right" className="w-[300px] p-0">
               <div className="mt-8 flex h-full flex-col">
                 <div className="flex-1 space-y-4 p-6">
@@ -95,7 +119,12 @@ export function Navbar() {
                       </div>
                       <span className="relative">
                         {link.label}
-                        <span className="bg-primary absolute -bottom-1 left-0 h-0.5 w-0 transition-all group-hover:w-full" />
+                        <span
+                          className={cn(
+                            'bg-primary absolute -bottom-1 left-0 h-0.5 w-0 transition-all group-hover:w-full',
+                            isActive(link.to) && 'w-full',
+                          )}
+                        />
                       </span>
                     </Link>
                   ))}
