@@ -14,6 +14,7 @@ import {
   PackageIcon,
   UserIcon,
   MenuIcon,
+  MailIcon,
 } from 'lucide-react'
 import { Button } from './ui/button'
 import { cn } from '@/lib/utils'
@@ -35,14 +36,19 @@ const links = [
     icon: <HomeIcon className="h-4 w-4" />,
   },
   {
+    label: 'Products',
+    to: '/products',
+    icon: <PackageIcon className="h-4 w-4" />,
+  },
+  {
     label: 'About',
     to: '/about',
     icon: <InfoIcon className="h-4 w-4" />,
   },
   {
-    label: 'Products',
-    to: '/products',
-    icon: <PackageIcon className="h-4 w-4" />,
+    label: 'Contact',
+    to: '/contact',
+    icon: <MailIcon className="h-4 w-4" />,
   },
 ]
 
