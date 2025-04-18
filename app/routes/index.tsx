@@ -1,4 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, Link } from '@tanstack/react-router'
 import { Button } from '@/components/ui/button'
 
 export const Route = createFileRoute('/')({
@@ -31,17 +31,19 @@ function Home() {
                 </p>
                 <div className="mt-10 flex items-center justify-center gap-x-6">
                   <Button
+                    asChild
                     size="lg"
                     className="bg-primary hover:bg-primary/90 rounded-full"
                   >
-                    Shop Now
+                    <Link to="/products">Shop Now</Link>
                   </Button>
                   <Button
+                    asChild
                     variant="outline"
                     size="lg"
                     className="border-accent/20 hover:bg-accent/10 rounded-full"
                   >
-                    Learn More
+                    <Link to="/about">Learn More</Link>
                   </Button>
                 </div>
               </div>
