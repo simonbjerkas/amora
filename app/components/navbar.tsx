@@ -50,6 +50,11 @@ const links = [
     to: '/contact',
     icon: <MailIcon className="h-4 w-4" />,
   },
+  {
+    label: 'Dashboard',
+    to: '/dashboard',
+    icon: <UserIcon className="h-4 w-4" />,
+  },
 ]
 
 export function Navbar() {

@@ -4,7 +4,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { api } from 'convex/_generated/api'
 import { Id } from 'convex/_generated/dataModel'
 
-export const Route = createFileRoute('/_layout/products/')({
+export const Route = createFileRoute('/products/')({
   component: RouteComponent,
 })
 
@@ -20,10 +20,13 @@ function RouteComponent() {
           <li key={category._id}>{category.name}</li>
         ))}
       </ul>
-      <ProductList
-        categoryId={categories[0]._id}
-        category={categories[0].name}
-      />
+      {categories.map((category) => (
+        <ProductList
+          key={category._id}
+          categoryId={category._id}
+          category={category.name}
+        />
+      ))}
     </div>
   )
 }

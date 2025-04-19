@@ -1,10 +1,11 @@
 import { createRouter as createTanStackRouter } from '@tanstack/react-router'
 import { routeTree } from '@/routeTree.gen'
-import { env } from '@/env'
 import { QueryClient } from '@tanstack/react-query'
 import { routerWithQueryClient } from '@tanstack/react-router-with-query'
 import { ConvexProvider } from 'convex/react'
 import { ConvexQueryClient } from '@convex-dev/react-query'
+
+import { env } from '@/env'
 
 export function createRouter() {
   const convexQueryClient = new ConvexQueryClient(env.VITE_CONVEX_URL)
